@@ -15,6 +15,7 @@ contract FunctionTypes {
     }
 
     // pure: 纯纯牛马（cannot read or write）
+    // pure: 只使用自己的入参, 不使用合约的状态变量
     function addPure(
         uint256 _number
     ) external pure returns (uint256 new_number) {
@@ -25,6 +26,8 @@ contract FunctionTypes {
     function addView() external view returns (uint256 new_number) {
         new_number = number + 1;
     }
+
+    // 既不是 pure, 又不是 view, 那就是可读可写
 
     // internal: 内部函数（只能从合约内部访问，继承的合约可以用）
     function minus() internal {
